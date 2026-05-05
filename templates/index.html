@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Reader</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+<h2>🤖 AI Reader</h2>
+
+<div class="section">
+<textarea id="text" rows="5" placeholder="Matn yoz..."></textarea><br><br>
+<button onclick="generateAudio()">🎧 O‘qib ber</button>
+</div>
+
+<div class="section">
+<audio id="player"></audio>
+
+<div class="controls">
+    <button onclick="playAudio()">▶️</button>
+    <button onclick="pauseAudio()">⏸</button>
+    <button onclick="restartAudio()">🔁</button>
+    <button onclick="rewind()">⏪</button>
+    <button onclick="forward()">⏩</button>
+</div>
+</div>
+
+<div class="section">
+<label>Tezlik:</label>
+<select onchange="changeSpeed(this.value)">
+    <option value="0.5">0.5x</option>
+    <option value="1" selected>1x</option>
+    <option value="1.5">1.5x</option>
+    <option value="2">2x</option>
+</select>
+</div>
+
+<div class="section">
+<h3>📄 PDF yuklash</h3>
+<input type="file" id="pdfFile">
+<button onclick="uploadPDF()">O‘qib ber</button>
+</div>
+
+<div class="section">
+<h3>🖼 Rasm yuklash</h3>
+<input type="file" id="imageFile">
+<button onclick="uploadImage()">O‘qib ber</button>
+</div>
+
+<div class="section" style="display:flex; gap:10px; align-items:center;">
+    <div class="loader" id="loader"></div>
+    <p id="status"></p>
+</div>
+
+</div>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
